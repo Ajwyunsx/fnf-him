@@ -3,9 +3,9 @@ package;
 #if MODS_ALLOWED
 import sys.io.File;
 import sys.FileSystem;
-#else
-import openfl.utils.Assets;
 #end
+import lime.utils.Assets;
+import openfl.utils.Assets as OpenFlAssets;
 import haxe.Json;
 import haxe.format.JsonParser;
 import Song;
@@ -65,8 +65,8 @@ class StageData {
 		var path:String = Paths.getPreloadPath('stages/' + stage + '.json');
 
 		//var modPath:String = Paths.modFolders('stages/' + stage + '.json');
-		if(Assets.exists(path)) {
-			rawJson = Assets.getText(path);
+		if(OpenFlAssets.exists(path)) {
+			rawJson = OpenFlAssets.getText(path);
 		}
 		else
 		{
