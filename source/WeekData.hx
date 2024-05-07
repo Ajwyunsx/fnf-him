@@ -109,7 +109,7 @@ class WeekData {
 		var rawJson:String = null;
 		
 		if(OpenFlAssets.exists(path)) {
-			rawJson = Assets.getText(path);
+			rawJson = OpenFlAssets.getText(path);
 		}
 		
 
