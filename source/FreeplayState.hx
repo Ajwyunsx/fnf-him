@@ -165,6 +165,9 @@ class FreeplayState extends MusicBeatState
 		text.scrollFactor.set();
 		add(text);
 		super.create();
+		#if mobile
+		addVirtualPad(FULL, A_B_X_Y);
+		#end
 	}
 
 	override function closeSubState() {
