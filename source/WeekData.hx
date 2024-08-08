@@ -85,25 +85,10 @@ class WeekData
 	{
 		weeksList = [];
 		weeksLoaded.clear();
-		#if MODS_ALLOWED
-		var directories:Array<String> = [Paths.mods(), Paths.getPreloadPath()];
-		var originalLength:Int = directories.length;
-		if (FileSystem.exists(Paths.mods()))
-		{
-			for (folder in FileSystem.readDirectory(Paths.mods()))
-			{
-				var path = haxe.io.Path.join([Paths.mods(), folder]);
-				if (sys.FileSystem.isDirectory(path) && !Paths.ignoreModFolders.contains(folder))
-				{
-					directories.push(path + '/');
-					// trace('pushed Directory: ' + folder);
-				}
-			}
-		}
-		#else
+		
 		var directories:Array<String> = [Paths.getPreloadPath()];
 		var originalLength:Int = directories.length;
-		#end
+		
 
 		var sexList:Array<String> = CoolUtil.coolTextFile(Paths.getPreloadPath('weeks/weekList.txt'));
 		for (i in 0...sexList.length)
@@ -178,17 +163,12 @@ class WeekData
 	private static function getWeekFile(path:String):WeekFile
 	{
 		var rawJson:String = null;
-		#if MODS_ALLOWED
-		if (FileSystem.exists(path))
-		{
-			rawJson = File.getContent(path);
-		}
-		#else
+		
 		if (OpenFlAssets.exists(path))
 		{
 			rawJson = Assets.getText(path);
 		}
-		#end
+		
 
 		if (rawJson != null && rawJson.length > 0)
 		{
