@@ -760,7 +760,7 @@ class PreferencesSubstate extends MusicBeatSubstate
 		'Hide Song Length',
 		'Flashing Lights',
 		'Camera Zooms',
-		,'FPS Counter'
+		'FPS Counter'
 	];
 
 	private var grpOptions:FlxTypedGroup<Alphabet>;
