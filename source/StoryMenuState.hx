@@ -180,7 +180,7 @@ class StoryMenuState extends MusicBeatState
 		super.create();
 
 		#if mobile
-		addVirtualPad(NONE, A_B);
+		addVirtualPad(LEFT_RIGHT, A_B);
 		#end
 	}
 
