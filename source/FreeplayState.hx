@@ -221,7 +221,7 @@ class FreeplayState extends MusicBeatState
 
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
-		var accepted = controls.ACCEPT;
+		var accepted = #if mobile virtualPad.buttonA.justPressed #end;
 		var space = FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonX.justPressed #end;
 		
 	        var shiftMult:Int = 1;
