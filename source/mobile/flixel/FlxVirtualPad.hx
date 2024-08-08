@@ -9,7 +9,30 @@ import flixel.math.FlxPoint;
 import mobile.flixel.FlxButton;
 import openfl.utils.Assets;
 
+enum FlxDPadMode
+{
+	UP_DOWN;
+	LEFT_RIGHT;
+	UP_LEFT_RIGHT;
+	LEFT_FULL;
+	RIGHT_FULL;
+	BOTH_FULL;
+	NONE;
+}
 
+enum FlxActionMode
+{
+	A;
+	B;
+	A_B;
+	A_B_C;
+	A_B_E;
+	A_B_X_Y;
+	A_B_C_X_Y;
+	A_B_C_X_Y_Z;
+	A_B_C_D_V_X_Y_Z;
+	NONE;
+}
 
 /**
  * A gamepad.
@@ -177,28 +200,4 @@ class FlxVirtualPad extends FlxSpriteGroup
 		#end
 		return button;
 	}
-}
-enum FlxDPadMode
-{
-	UP_DOWN;
-	LEFT_RIGHT;
-	UP_LEFT_RIGHT;
-	LEFT_FULL;
-	RIGHT_FULL;
-	BOTH_FULL;
-	NONE;
-}
-
-enum FlxActionMode
-{
-	A;
-	B;
-	A_B;
-	A_B_C;
-	A_B_E;
-	A_B_X_Y;
-	A_B_C_X_Y;
-	A_B_C_X_Y_Z;
-	A_B_C_D_V_X_Y_Z;
-	NONE;
 }
