@@ -239,7 +239,7 @@ class StoryMenuState extends MusicBeatState
 			if (controls.UI_LEFT_P)
 				changeDifficulty(-1);
 
-			if (controls.ACCEPT)
+			if (#if mobile || virtualPad.buttonA.justPressed #end)
 			{
 				selectWeek();
 			}
