@@ -6,6 +6,7 @@ import flixel.FlxSubState;
 import flixel.FlxBasic;
 import flixel.FlxSprite;
 #if mobile
+import flixel.input.actions.FlxActionInput;
 import mobile.flixel.FlxButton;
 import mobile.flixel.FlxHitbox;
 import mobile.flixel.FlxVirtualPad;
