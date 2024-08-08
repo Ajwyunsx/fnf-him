@@ -175,37 +175,16 @@ class Paths
 
 	inline static public function music(key:String, ?library:String):Dynamic
 	{
-		#if MODS_ALLOWED
-		var file:String = modsMusic(key);
-		if(OpenFlAssets.exists(file)) {
-			if(!customSoundsLoaded.exists(file)) {
-				customSoundsLoaded.set(file, Sound.fromFile(file));
-			}
-			return customSoundsLoaded.get(file);
-		}
-		#end
 		return getPath('music/$key.$SOUND_EXT', MUSIC, library);
 	}
 
 	inline static public function voices(song:String):Any
 	{
-		#if MODS_ALLOWED
-		var file:Sound = returnSongFile(modsSongs(song.toLowerCase().replace(' ', '-') + '/Voices'));
-		if(file != null) {
-			return file;
-		}
-		#end
 		return 'songs:assets/songs/${song.toLowerCase().replace(' ', '-')}/Voices.$SOUND_EXT';
 	}
 
 	inline static public function inst(song:String):Any
 	{
-		#if MODS_ALLOWED
-		var file:Sound = returnSongFile(modsSongs(song.toLowerCase().replace(' ', '-') + '/Inst'));
-		if(file != null) {
-			return file;
-		}
-		#end
 		return 'songs:assets/songs/${song.toLowerCase().replace(' ', '-')}/Inst.$SOUND_EXT';
 	}
 
@@ -229,27 +208,6 @@ class Paths
 	
 	static public function getTextFromFile(key:String, ?ignoreMods:Bool = false):String
 	{
-		#if sys
-		if (!ignoreMods && OpenFlAssets.exists(mods(key)))
-			return OpenFlAssets.getText(mods(key));
-
-		if (OpenFlAssets.exists(getPreloadPath(key)))
-			return OpenFlAssets.getText(getPreloadPath(key));
-
-		if (currentLevel != null)
-		{
-			var levelPath:String = '';
-			if(currentLevel != 'shared') {
-				levelPath = getLibraryPathForce(key, currentLevel);
-				if (OpenFlAssets.exists(levelPath))
-					return OpenFlAssets.getText(levelPath);
-			}
-
-			levelPath = getLibraryPathForce(key, 'shared');
-			if (OpenFlAssets.exists(levelPath))
-				return OpenFlAssets.getText(levelPath);
-		}
-		#end
 		return Assets.getText(getPath(key, TEXT));
 	}
 
