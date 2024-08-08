@@ -31,6 +31,11 @@ class Main extends Sprite
 	{
 		super();
 
+		#if mobile
+		Generic.initCrashHandler();
+		Generic.mode = ROOTDATA;
+		#end
+
 		if (stage != null)
 		{
 			init();
