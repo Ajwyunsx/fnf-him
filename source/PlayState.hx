@@ -965,6 +965,10 @@ class PlayState extends MusicBeatState
 		timeTxt.cameras = [camHUD];
 		doof.cameras = [camHUD];
 
+                #if mobile
+		addMobileControls();
+		#end
+
 		// if (SONG.song == 'South')
 		// FlxG.camera.alpha = 0.7;
 		// UI_camera.zoom = 1;
@@ -1304,6 +1308,9 @@ class PlayState extends MusicBeatState
 
 	public function startCountdown():Void
 	{
+		#if mobile
+		mobileControls.visible = true;
+		#end
 		if(startedCountdown) {
 			callOnLuas('onStartCountdown', []);
 			return;
@@ -2976,7 +2983,10 @@ class PlayState extends MusicBeatState
 				return;
 			}
 		}
-		
+
+		#if mobile
+		mobileControls.visible = true;
+		#end
 		timeBarBG.visible = false;
 		timeBar.visible = false;
 		timeTxt.visible = false;
