@@ -222,9 +222,9 @@ class FreeplayState extends MusicBeatState
 		var upP = controls.UI_UP_P;
 		var downP = controls.UI_DOWN_P;
 		var accepted = controls.ACCEPT;
-		var space = FlxG.keys.justPressed.SPACE;
-
-		var shiftMult:Int = 1;
+		var space = FlxG.keys.justPressed.SPACE #if mobile || virtualPad.buttonX.justPressed #end;
+		
+	        var shiftMult:Int = 1;
 		if(FlxG.keys.pressed.SHIFT) shiftMult = 3;
 
 		if (upP || FlxG.mouse.wheel >= 1)
@@ -297,7 +297,7 @@ class FreeplayState extends MusicBeatState
 					
 			destroyFreeplayVocals();
 		}
-		else if(controls.RESET)
+		else if(controls.RESET #if mobile || virtualPad.buttonY.justPressed #end)
 		{
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
 			FlxG.sound.play(Paths.sound('scrollMenu'));
